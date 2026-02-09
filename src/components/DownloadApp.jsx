@@ -8,7 +8,7 @@ function DownloadApp() {
   return (
     <section
       id="download"
-      className="py-20 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 relative overflow-hidden text-white px-4 sm:px-10 md:px-20 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 shadow-lg"
+      className="py-20 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 relative overflow-hidden text-white px-4 sm:px-10 md:px-24 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 shadow-lg"
     >
       {/* Background pattern overlay */}
       <div className="absolute inset-0 opacity-10">

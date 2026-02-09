@@ -246,7 +246,11 @@ import {
   FiAward,
   FiUsers,
   FiPlay,
+  FiZap,
 } from "react-icons/fi";
+import process1 from "../assets/screens/goal-img.avif";
+import process2 from "../assets/screens/start-training.avif";
+import process3 from "../assets/screens/result.jpg";
 
 // Import hero image
 // import fitnessHero from "../assets/fitness/fit1.jpg";
@@ -397,6 +401,34 @@ const Fitness = () => {
     },
   ];
 
+  // Enhanced How App Works with more benefits
+  const journeySteps = [
+    {
+      icon: <FiTarget size={28} />,
+      title: "Set Your Goal",
+      description:
+        "Take our quick assessment to get a personalized fitness plan tailored to your body type and goals.",
+      badge: "2-min quiz",
+      image: process1,
+    },
+    {
+      icon: <FiZap size={28} />,
+      title: "Start Training",
+      description:
+        "Join live classes or follow pre-recorded sessions. Track your calories, macros, and progress in real-time.",
+      badge: "Instant access",
+      image: process2,
+    },
+    {
+      icon: <FiTrendingUp size={28} />,
+      title: "See Results",
+      description:
+        "Watch your body transform with our advanced analytics. Celebrate milestones and unlock achievements.",
+      badge: "Track everything",
+      image: process3,
+    },
+  ];
+
   return (
     <div className="pt-10">
       {/* Hero Section with Image */}
@@ -446,7 +478,7 @@ const Fitness = () => {
       </section>
 
       {/* Fitness Overview Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-emerald-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -503,6 +535,67 @@ const Fitness = () => {
                   {item.title}
                 </h3>
                 <p className="text-gray-600">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <SectionTitle
+              title="Your Journey to Fitness"
+              subtitle="Three simple steps to a healthier, stronger you"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {journeySteps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="bg-white rounded-2xl overflow-hidden h-full shadow-lg transition-all duration-300 border border-emerald-50 flex flex-col">
+                  <div className="h-32 sm:h-40 overflow-hidden">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover mix-blend-multiply opacity-80"
+                    />
+                  </div>
+                  <div className="p-6 sm:p-8 flex-1 flex flex-col">
+                    <div className="flex items-center justify-between mb-4 sm:mb-6">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600">
+                        {step.icon}
+                      </div>
+                      <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">
+                        {step.badge}
+                      </span>
+                    </div>
+                    <div className="flex items-center mb-3 sm:mb-4">
+                      <span className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 bg-emerald-600 text-white rounded-full font-bold mr-3 text-sm">
+                        {index + 1}
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed flex-1 text-sm sm:text-base">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+                {index < journeySteps.length - 1 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                      <FiArrowRight className="text-gray-400" />
+                    </div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>

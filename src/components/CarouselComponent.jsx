@@ -36,13 +36,13 @@ const CarouselComponent = () => {
         {images.map((img, index) => (
           <div
             key={index}
-            className="w-full h-[350px] pb-18 2xl:pb-26 pl-4 pr-4 pt-16 md:pt-16 lg:pt-20 xl:pt-24 sm:h-[350px] md:h-[450px] lg:h-[570px] xl:h-[620px] relative"
+            className="w-full h-[350px] pb-18 pl-4 pr-4 pt-16 md:pt-16 lg:pt-20 xl:pt-24 sm:h-[350px] md:h-[450px] lg:h-[570px] xl:h-[620px] relative"
           >
             <img
               src={img}
               alt={`Slide ${index + 1}`}
               loading="eager"
-              className="w-full h-full object-fit rounded-4xl transition-transform duration-500 ease-in-out hover:scale-105"
+              className="w-full h-full object-cover rounded-4xl transition-transform duration-500 ease-in-out hover:scale-105"
             />
           </div>
         ))}

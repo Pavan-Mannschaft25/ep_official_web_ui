@@ -9,11 +9,13 @@ import Shop from "./pages/Shop";
 import AppPreview from "./pages/AppPreview";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
+        <ScrollToTop />
         <Header />
         <main className="flex-grow">
           <Routes>
