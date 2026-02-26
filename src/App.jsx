@@ -10,6 +10,7 @@ import AppPreview from "./pages/AppPreview";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import FranchisePage from "./pages/FranchisePage.JSX";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/app-preview" element={<AppPreview />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/franchises" element={<FranchisePage />} />
           </Routes>
         </main>
         <Footer />

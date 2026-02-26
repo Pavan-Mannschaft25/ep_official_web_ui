@@ -31,10 +31,14 @@ import {
   FiCalendar,
 } from "react-icons/fi";
 import CarouselComponent from "../components/CarouselComponent";
+import TopOffers from "../components/home/TopOffers";
+import RecommendedMeals from "../components/home/RecommendedMeals";
 import DownloadApp from "../components/DownloadApp";
 import screen1 from "../assets/screens/screen1.jpeg";
 import screen2 from "../assets/screens/screen2.jpeg";
 import screen3 from "../assets/screens/screen3.jpeg";
+import ExploreModules from "../components/home/ExploreModules";
+import EatProteinModules from "../components/home/EatProteinModules";
 
 // ModuleCard component for the navigation tabs
 const ModuleCard = ({ title, icon, desc, to, color }) => {
@@ -72,37 +76,6 @@ const ModuleCard = ({ title, icon, desc, to, color }) => {
 };
 
 const Home = () => {
-  const modules = [
-    {
-      title: "Fitness",
-      icon: <FiActivity size={28} />,
-      desc: "Workouts, trainers & progress",
-      to: "/fitness",
-      color: "emerald",
-    },
-    {
-      title: "Shop",
-      icon: <FiShoppingBag size={28} />,
-      desc: "Supplements & fitness gear",
-      to: "/shop",
-      color: "teal",
-    },
-    {
-      title: "Diet",
-      icon: <FiTarget size={28} />,
-      desc: "Personalized diet plans",
-      to: "/diet",
-      color: "orange",
-    },
-    {
-      title: "Recipes",
-      icon: <FiHeart size={28} />,
-      desc: "Healthy & easy recipes",
-      to: "/recipes",
-      color: "purple",
-    },
-  ];
-
   const features = [
     {
       icon: <FiActivity size={32} />,
@@ -232,12 +205,12 @@ const Home = () => {
   ];
 
   // Social proof stats
-  const stats = [
-    { number: "50K+", label: "Active Users" },
-    { number: "200+", label: "Daily Classes" },
-    { number: "4.9", label: "App Rating" },
-    { number: "5000+", label: "Products" },
-  ];
+  // const stats = [
+  //   { number: "50K+", label: "Active Users" },
+  //   { number: "200+", label: "Daily Classes" },
+  //   { number: "4.9", label: "App Rating" },
+  //   { number: "5000+", label: "Products" },
+  // ];
 
   return (
     <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 w-full overflow-x-hidden">
@@ -245,7 +218,7 @@ const Home = () => {
       <CarouselComponent />
 
       {/* Social Proof Stats - Enhanced with subtle gradient */}
-      <section className="py-6 sm:py-8 bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 border-b border-emerald-100">
+      {/* <section className="py-6 sm:py-8 bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 border-b border-emerald-100">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {stats.map((stat, index) => (
@@ -267,32 +240,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Why Choose Section - Enhanced with subtle gradient */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
-        <div className="container mx-auto px-4">
-          <SectionTitle
-            title="Why Choose Eat Protein App?"
-            subtitle="We provide everything you need to achieve your fitness goals"
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      </section> */}
 
       {/* Module Navigation Tabs */}
-      <section className="py-10">
+      {/* <section className="py-10">
         <div className="container mx-auto px-4">
           <SectionTitle
             title="Explore Our Modules"
@@ -313,673 +264,19 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <ExploreModules />
 
-      {/* Fitness Module Section - Enhanced with visual elements and social proof */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
+      <TopOffers />
 
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-4">
-                <span className="inline-block px-3 py-1 text-xs font-semibold text-emerald-700 bg-emerald-100 rounded-full">
-                  TRUSTED BY 10,000+ FITNESS ENTHUSIASTS
-                </span>
-              </div>
+      <RecommendedMeals />
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Train Smarter, Track Better,{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                  Achieve Faster
-                </span>
-              </h2>
-
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <p className="text-base sm:text-lg text-gray-600 mb-2">
-                  <span className="text-red-500 font-medium">Problem:</span>{" "}
-                  Managing workouts, trainers, and diet separately is confusing.
-                </p>
-                <p className="text-base sm:text-lg text-gray-600 mb-2">
-                  <span className="text-emerald-600 font-medium">
-                    Solution:
-                  </span>{" "}
-                  Our Fitness Module brings everything into one powerful system.
-                </p>
-                <p className="text-base sm:text-lg font-medium text-emerald-700">
-                  <span className="text-blue-600 font-medium">Result:</span>{" "}
-                  Stay consistent, track progress, and reach your goals 3x
-                  faster.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-emerald-600">💪</span>
-                    </div>
-                    <span className="text-sm sm:text-base font-medium">
-                      Personalized workouts
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Designed for your body & goals
-                  </p>
-                </div>
-
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-emerald-600">👨‍🏫</span>
-                    </div>
-                    <span className="text-sm sm:text-base font-medium">
-                      Expert guidance
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Connect with trainers who understand your journey
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center text-sm text-gray-700 mb-6">
-                <span className="font-semibold mr-2">Perfect for:</span>{" "}
-                beginners, gym members, and serious fitness enthusiasts
-              </div>
-
-              <CTAButton
-                text="Start Your Fitness Journey"
-                to="/fitness"
-                primary={true}
-                icon={<FiActivity />}
-                className="w-full sm:w-auto"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg p-3 flex flex-col items-center justify-center shadow-lg"
-            >
-              <div className="w-full h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden relative">
-                <video
-                  className="w-full h-full object-cover"
-                  poster="https://img.lovepik.com/photo/20211119/medium/lovepik-instructor-training-picture_500292642.jpg"
-                  controls
-                  playsInline
-                >
-                  <source
-                    src="https://www.w3schools.com/html/mov_bbb.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-
-                {/* Video overlay with key features */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <div className="grid grid-cols-2 gap-2 text-white text-xs">
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Dashboard
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Workout flow
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Progress tracking
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Mobile-friendly
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonial */}
-              <div className="w-full bg-white rounded-lg p-4 mt-4 shadow-md">
-                <div className="flex items-center mb-2">
-                  <div className="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
-                  <div>
-                    <p className="text-sm font-medium">Sarah Johnson</p>
-                    <div className="flex text-yellow-400 text-xs">
-                      <span>★</span>
-                      <span>★</span>
-                      <span>★</span>
-                      <span>★</span>
-                      <span>★</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-xs text-gray-600 italic">
-                  "This fitness module helped me lose 15 lbs in just 8 weeks.
-                  The personalized workouts and nutrition guidance were
-                  game-changers!"
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Shop Module Section - Premium Products for Peak Performance */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg p-3 flex flex-col items-center justify-center order-2 md:order-1 shadow-lg"
-            >
-              <div className="w-full h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  poster="https://okcredit-blog-images-prod.storage.googleapis.com/2020/11/shutterstock_566591296.jpg"
-                  controls
-                  playsInline
-                >
-                  <source
-                    src="https://www.w3schools.com/html/mov_bbb.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-
-              {/* Trust indicators */}
-              <div className="w-full bg-white rounded-lg p-3 mt-3 flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="flex text-yellow-400 text-xs mr-2">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                  </div>
-                  <span className="text-xs text-gray-700">
-                    4.9/5 (2,341 reviews)
-                  </span>
-                </div>
-                <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded">
-                  25% OFF
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 md:order-2"
-            >
-              <div className="mb-2">
-                <span className="inline-block px-3 py-1 text-xs font-semibold text-emerald-700 bg-emerald-100 rounded-full">
-                  LIMITED TIME: UP TO 25% OFF
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Transform Your{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                  Fitness Journey
-                </span>
-              </h2>
-
-              <p className="text-base sm:text-lg text-gray-600 mb-6">
-                Stop wasting money on ineffective products. Our science-backed
-                fitness essentials deliver real results in 30 days or your money
-                back.
-              </p>
-
-              <div className="grid grid-cols-1 gap-4 mb-6 sm:mb-8">
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-emerald-600">💪</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-medium">
-                      Enhance performance & recovery
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      Premium supplements backed by science
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-emerald-600">🛡️</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-medium">
-                      Train smarter & prevent injuries
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      High-quality accessories and wearables
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-emerald-600">💰</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-medium">
-                      Save with exclusive member pricing
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      Special discounts on premium products
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <CTAButton
-                  text="Shop Now - Save 25%"
-                  to="/shop"
-                  primary={true}
-                  icon={<FiShoppingBag />}
-                  className="w-full sm:w-auto"
-                />
-                {/* <CTAButton
-                  text="View Bestsellers"
-                  to="/shop/bestsellers"
-                  primary={false}
-                  icon={<FiTrendingUp />}
-                  className="w-full sm:w-auto"
-                /> */}
-              </div>
-
-              <p className="text-xs text-gray-500 flex items-center">
-                <span className="mr-1">🚚</span> Free shipping over $50
-                <span className="mx-2">•</span>
-                <span className="mr-1">🔄</span> 30-day returns
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Diet Module Section - Delicious Meals for Your Fitness Goals */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="mb-4">
-                <span className="inline-block px-3 py-1 text-xs font-semibold text-emerald-700 bg-emerald-100 rounded-full">
-                  TRUSTED BY 8,000+ NUTRITION ENTHUSIASTS
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Eat Right,{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                  Live Better
-                </span>
-              </h2>
-
-              <div className="mb-8 bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <p className="text-base sm:text-lg text-gray-600 mb-2">
-                  <span className="text-red-500 font-medium">Problem:</span>{" "}
-                  Nutrition advice is confusing and one-size-fits-all diets
-                  don't work.
-                </p>
-                <p className="text-base sm:text-lg text-gray-600 mb-2">
-                  <span className="text-emerald-600 font-medium">
-                    Solution:
-                  </span>{" "}
-                  Our Diet Module creates personalized nutrition plans based on
-                  your body and goals.
-                </p>
-                <p className="text-base sm:text-lg font-medium text-emerald-700">
-                  <span className="text-blue-600 font-medium">Result:</span>{" "}
-                  Reach your goals 2x faster with sustainable eating habits
-                  you'll actually enjoy.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-emerald-600">🎯</span>
-                    </div>
-                    <span className="text-sm sm:text-base font-medium">
-                      Personalized for you
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Plans designed for your body type & goals
-                  </p>
-                </div>
-
-                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                  <div className="flex items-center mb-2">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-emerald-600">🍽️</span>
-                    </div>
-                    <span className="text-sm sm:text-base font-medium">
-                      Delicious meals
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Recipes you'll love that fuel your progress
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center text-sm text-gray-700 mb-6">
-                <span className="font-semibold mr-2">Perfect for:</span> weight
-                loss, muscle gain, and healthy living
-              </div>
-
-              <CTAButton
-                text="Start Your Nutrition Plan"
-                to="/diet"
-                primary={true}
-                icon={<FiTarget />}
-                className="w-full sm:w-auto"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg p-3 flex flex-col items-center justify-center shadow-lg"
-            >
-              <div className="w-full h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden relative">
-                <video
-                  className="w-full h-full object-cover"
-                  poster="https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
-                  controls
-                  playsInline
-                >
-                  <source
-                    src="https://www.w3schools.com/html/mov_bbb.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-
-                {/* Video overlay with key features */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <div className="grid grid-cols-2 gap-2 text-white text-xs">
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Custom plans
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Easy recipes
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Progress tracking
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-white rounded-full mr-1"></span>{" "}
-                      Shopping lists
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonial */}
-              <div className="w-full bg-white rounded-lg p-4 mt-4 shadow-md">
-                <div className="flex items-center mb-2">
-                  <div className="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
-                  <div>
-                    <p className="text-sm font-medium">Michael Chen</p>
-                    <div className="flex text-yellow-400 text-xs">
-                      <span>★</span>
-                      <span>★</span>
-                      <span>★</span>
-                      <span>★</span>
-                      <span>★</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-xs text-gray-600 italic">
-                  "Lost 20 lbs in 10 weeks without feeling deprived. The
-                  personalized plan made all the difference!"
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recipe Module Section - Delicious Meals for Your Fitness Goals */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full filter blur-3xl opacity-30 -z-10"></div>
-
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-lg p-3 flex flex-col items-center justify-center order-2 md:order-1 shadow-lg"
-            >
-              <div className="w-full h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  poster="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445"
-                  controls
-                  playsInline
-                >
-                  <source
-                    src="https://www.w3schools.com/html/mov_bbb.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-
-              {/* Trust indicators */}
-              <div className="w-full bg-white rounded-lg p-3 mt-3 flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="flex text-yellow-400 text-xs mr-2">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                  </div>
-                  <span className="text-xs text-gray-700">
-                    4.9/5 (3,127 reviews)
-                  </span>
-                </div>
-                <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded">
-                  NEW RECIPES
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 md:order-2"
-            >
-              <div className="mb-2">
-                <span className="inline-block px-3 py-1 text-xs font-semibold text-emerald-700 bg-emerald-100 rounded-full">
-                  UPDATED WEEKLY: 50+ NEW RECIPES
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Discover{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-                  Delicious Nutrition
-                </span>
-              </h2>
-
-              <p className="text-base sm:text-lg text-gray-600 mb-6">
-                Stop struggling with boring meals. Our nutritionist-approved
-                recipes make healthy eating delicious and simple, with meals
-                ready in under 30 minutes.
-              </p>
-
-              <div className="grid grid-cols-1 gap-4 mb-6 sm:mb-8">
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-emerald-600">🍳</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-medium">
-                      Nutritionist-approved recipes
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      Balanced macros for your fitness goals
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-emerald-600">⏱️</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-medium">
-                      Quick & easy preparation
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      Most meals ready in under 30 minutes
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                    <span className="text-emerald-600">🛒</span>
-                  </div>
-                  <div>
-                    <span className="text-base font-medium">
-                      Smart shopping lists
-                    </span>
-                    <p className="text-sm text-gray-600">
-                      Automated grocery lists for meal planning
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <CTAButton
-                  text="Explore Recipes"
-                  to="/recipes"
-                  primary={true}
-                  icon={<FiBookOpen />}
-                  className="w-full sm:w-auto"
-                />
-              </div>
-
-              <p className="text-xs text-gray-500 flex items-center">
-                <span className="mr-1">🍽️</span> 500+ recipes available
-                <span className="mx-2">•</span>
-                <span className="mr-1">📱</span> Mobile-friendly
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced What You Get Section - Improved background */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-4">
-              Everything You Need
-            </span>
-            <SectionTitle
-              title="Your Complete Fitness Solution"
-              subtitle="No more juggling between apps. Get everything in one powerful platform"
-            />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {coreFeatures.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group h-full"
-              >
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-emerald-50 flex flex-col">
-                  <div className="p-6 sm:p-6 flex-1 flex flex-col">
-                    <div
-                      className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      {feature.icon}
-                    </div>
-                    <span className="inline-block w-40 px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600 mb-3">
-                      {feature.stats}
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed flex-1">
-                      {feature.description}
-                    </p>
-                    {/* <a
-                      href={feature.link}
-                      className="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group"
-                    >
-                      Explore {feature.title.split(" ")[0]}
-                      <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </a> */}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <EatProteinModules />
 
       {/* Enhanced App Preview - Improved background */}
       <section className="py-10 sm:py-16 relative overflow-hidden">
         {/* Background with gradient and pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50"></div>
+        <div className="absolute inset-0 bg-white"></div>
 
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
@@ -1069,6 +366,28 @@ const Home = () => {
               to="/app-preview"
               primary={true}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section - Enhanced with subtle gradient */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionTitle
+            title="Why Choose Eat Protein App?"
+            subtitle="We provide everything you need to achieve your fitness goals"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                delay={index * 0.1}
+              />
+            ))}
           </div>
         </div>
       </section>

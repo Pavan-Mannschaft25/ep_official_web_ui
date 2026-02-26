@@ -30,7 +30,7 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             {/* Logo section with responsive sizing */}
             <div className="relative mb-4 sm:mb-6">
-              <div className="absolute inset-0 bg-green-500 rounded-lg blur-md opacity-30 w-32 sm:w-40 md:w-45"></div>
+              {/* <div className="absolute inset-0 bg-green-500 rounded-lg blur-md opacity-30 w-32 sm:w-40 md:w-45"></div> */}
               <img
                 src={logo}
                 alt="logo"

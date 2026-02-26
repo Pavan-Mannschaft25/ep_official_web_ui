@@ -18,6 +18,8 @@ import {
   FiShoppingCart,
   FiUser,
   FiGrid,
+  FiMap,
+  FiUsers,
 } from "react-icons/fi";
 import logo from "../assets/images/eat_protien_img1.webp";
 import CTAButton from "./CTAButton";
@@ -104,9 +106,11 @@ const Header = () => {
       icon: <FiGrid />,
       hasDropdown: true,
     },
+    { name: "Franchises", path: "/franchises", icon: <FiMap /> },
+    { name: "Partner with us", path: "/partners", icon: <FiUsers /> },
     { name: "App Preview", path: "/app-preview", icon: <FiSmartphone /> },
-    { name: "About", path: "/about", icon: <FiInfo /> },
-    { name: "Contact", path: "/contact", icon: <FiMail /> },
+    // { name: "About", path: "/about", icon: <FiInfo /> },
+    // { name: "Contact", path: "/contact", icon: <FiMail /> },
   ];
 
   const categoryItems = [
@@ -166,7 +170,7 @@ const Header = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
-            : "bg-gradient-to-r from-green-50 to-emerald-50 shadow-md py-2"
+            : "bg-white/95 backdrop-blur-md shadow-md py-2"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-2">
@@ -178,7 +182,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-green-500 rounded-lg blur-md opacity-30"></div>
+                  <div className="absolute inset-0  rounded-lg blur-md opacity-30"></div>
                   <img
                     src={logo}
                     alt="logo"
